@@ -40,6 +40,23 @@ public class MainGameManager : MonoBehaviour
     [SerializeField]
     private Text _main_score;
 
+    [SerializeField]
+    private Canvas _settings;
+
+    [SerializeField]
+    private Canvas _pause_canvas;
+
+    [SerializeField]
+    private bool _pause = false;
+
+    [SerializeField]
+    private Button _pause_button;
+
+    [SerializeField]
+    private Button _privacy_policy;
+
+    [SerializeField]
+    private Button _terms_and_conditions;
 
 
     private void Awake()
@@ -51,6 +68,42 @@ public class MainGameManager : MonoBehaviour
         _canvas.gameObject.SetActive(false);
 
         _main_score.gameObject.SetActive(false);
+
+        _settings.gameObject.SetActive(false);
+
+        _pause_canvas.gameObject.SetActive(false);
+
+        _tutorial.gameObject.SetActive(true);
+
+        _pause_button.onClick.AddListener(() =>
+        {
+            if (_pause)
+            {
+                _pause = false;
+
+                Time.timeScale = 1f;
+
+                _settings.gameObject.SetActive(false);
+            }
+            else
+            {
+                _pause = true;
+
+                Time.timeScale = 0f;
+
+                _settings.gameObject.SetActive(true);
+            }
+        });
+
+        _privacy_policy.onClick.AddListener(() =>
+        {
+            Application.OpenURL("https://limonado-entertainment.jimdosite.com/scale.it");
+        });
+
+        _terms_and_conditions.onClick.AddListener(() =>
+        {
+            Application.OpenURL("https://limonado-entertainment.jimdosite.com/scale.it");
+        });
     }
 
 
@@ -179,5 +232,7 @@ public class MainGameManager : MonoBehaviour
         yield return new WaitForSeconds(5f / 5f * 4f);
 
         _tutorial.gameObject.SetActive(false);
+
+        _pause_canvas.gameObject.SetActive(true);
     }
 }
