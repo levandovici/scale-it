@@ -97,12 +97,12 @@ public class MainGameManager : MonoBehaviour
 
         _privacy_policy.onClick.AddListener(() =>
         {
-            Application.OpenURL("https://limonado-entertainment.jimdosite.com/scale.it");
+            Application.OpenURL("https://limonado-entertainment.jimdosite.com/privacy.policy/");
         });
 
         _terms_and_conditions.onClick.AddListener(() =>
         {
-            Application.OpenURL("https://limonado-entertainment.jimdosite.com/scale.it");
+            Application.OpenURL("https://limonado-entertainment.jimdosite.com/terms-and-conditions/");
         });
     }
 
