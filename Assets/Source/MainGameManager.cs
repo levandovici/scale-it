@@ -184,6 +184,8 @@ public class MainGameManager : MonoBehaviour
 
     private void Update()
     {
+        if (_player != null)
+        {
             for (int i = 0; i < _sizes.Length; i++)
             {
                 if (_player.transform.localScale.x <= _sizes[i].size)
@@ -193,6 +195,7 @@ public class MainGameManager : MonoBehaviour
                     break;
                 }
             }
+        }
 
         _main_score.text = $"Score: {_count}";
     }
