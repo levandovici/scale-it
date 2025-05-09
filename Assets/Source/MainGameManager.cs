@@ -38,6 +38,9 @@ public class MainGameManager : MonoBehaviour
     private Canvas _tutorial;
 
     [SerializeField]
+    private Canvas _main_canvas;
+
+    [SerializeField]
     private Text _main_score;
 
     [SerializeField]
@@ -73,6 +76,8 @@ public class MainGameManager : MonoBehaviour
 
         _pause_canvas.gameObject.SetActive(false);
 
+        _main_canvas.gameObject.SetActive(false);
+
         _tutorial.gameObject.SetActive(true);
 
         _pause_button.onClick.AddListener(() =>
@@ -97,12 +102,12 @@ public class MainGameManager : MonoBehaviour
 
         _privacy_policy.onClick.AddListener(() =>
         {
-            Application.OpenURL("https://limonado-entertainment.jimdosite.com/privacy.policy/");
+            Application.OpenURL("https://games.limonadoent.com/privacy-policy.html");
         });
 
         _terms_and_conditions.onClick.AddListener(() =>
         {
-            Application.OpenURL("https://limonado-entertainment.jimdosite.com/terms-and-conditions/");
+            Application.OpenURL("https://games.limonadoent.com/terms-and-conditions.html");
         });
     }
 
@@ -163,6 +168,8 @@ public class MainGameManager : MonoBehaviour
                 _transform.gameObject.SetActive(false);
 
                 _main_score.gameObject.SetActive(false);
+
+                _main_canvas.gameObject.SetActive(true);
 
                 _tutorial.gameObject.SetActive(false);
 
@@ -233,6 +240,8 @@ public class MainGameManager : MonoBehaviour
         _main_score.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(5f / 5f * 4f);
+
+        _main_canvas.gameObject.SetActive(true);
 
         _tutorial.gameObject.SetActive(false);
 
